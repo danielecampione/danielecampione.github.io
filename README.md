@@ -1,4 +1,4 @@
-# danielecampione GitHub Pages
+# danielecampione's projects written in HTML5, CSS3 and JavaScript
 
 danielecampione's projects written in HTML5, CSS3 and JavaScript:
 * Play the classic European roulette written in HTML5, CSS3 and JavaScript. ([roulette](https://danielecampione.github.io/docs/roulette/index.html))

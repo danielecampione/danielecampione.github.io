@@ -19,13 +19,20 @@ function handleClick(e) {
     const currentClass = isXTurn ? 'x' : 'o';
     placeMark(cell, currentClass);
     if (checkWin(currentClass)) {
-        setTimeout(() => alert(`${currentClass.toUpperCase()} Wins!`), 10);
+        setTimeout(() => {
+            alert(`${currentClass.toUpperCase()} Wins!`);
+            startGame();
+        }, 10);
     } else if (isDraw()) {
-        setTimeout(() => alert('Draw!'), 10);
+        setTimeout(() => {
+            alert('Draw!');
+            startGame();
+        }, 10);
     } else {
         swapTurns();
     }
 }
+
 
 function placeMark(cell, currentClass) {
     cell.classList.add(currentClass);

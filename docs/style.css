@@ -1,0 +1,134 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    font-family: 'Roboto', sans-serif;
+}
+
+.roulette-container {
+    text-align: center;
+}
+
+.roulette-wheel {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border: 10px solid #34495e;
+    border-radius: 50%;
+    margin: 0 auto;
+    background: radial-gradient(circle, #27ae60, #2ecc71);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.ball {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #f1c40f;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 20px rgba(255, 255, 0, 0.8); /* Effetto di luce */
+    transition: box-shadow 0.3s;
+}
+
+.numbers {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(-9deg); /* Rotazione per allineare i numeri */
+}
+
+.number {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: #ecf0f1;
+    font-size: 14px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+    transform-origin: 50% 50%;
+}
+
+.number.red {
+    background-color: #e74c3c;
+}
+
+.number.black {
+    background-color: #34495e;
+}
+
+.number.green {
+    background-color: #27ae60;
+}
+
+.number:hover {
+    transform: scale(1.2);
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #e74c3c;
+    color: #ecf0f1;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #c0392b;
+}
+
+/* Posizionamento dei numeri lungo la circonferenza nell'ordine corretto della roulette europea */
+.roulette-wheel .number:nth-child(1) { transform: rotate(0deg) translate(130px); }
+.roulette-wheel .number:nth-child(2) { transform: rotate(9.73deg) translate(130px); }
+.roulette-wheel .number:nth-child(3) { transform: rotate(19.46deg) translate(130px); }
+.roulette-wheel .number:nth-child(4) { transform: rotate(29.19deg) translate(130px); }
+.roulette-wheel .number:nth-child(5) { transform: rotate(38.92deg) translate(130px); }
+.roulette-wheel .number:nth-child(6) { transform: rotate(48.65deg) translate(130px); }
+.roulette-wheel .number:nth-child(7) { transform: rotate(58.38deg) translate(130px); }
+.roulette-wheel .number:nth-child(8) { transform: rotate(68.11deg) translate(130px); }
+.roulette-wheel .number:nth-child(9) { transform: rotate(77.84deg) translate(130px); }
+.roulette-wheel .number:nth-child(10) { transform: rotate(87.57deg) translate(130px); }
+.roulette-wheel .number:nth-child(11) { transform: rotate(97.3deg) translate(130px); }
+.roulette-wheel .number:nth-child(12) { transform: rotate(107.03deg) translate(130px); }
+.roulette-wheel .number:nth-child(13) { transform: rotate(116.76deg) translate(130px); }
+.roulette-wheel .number:nth-child(14) { transform: rotate(126.49deg) translate(130px); }
+.roulette-wheel .number:nth-child(15) { transform: rotate(136.22deg) translate(130px); }
+.roulette-wheel .number:nth-child(16) { transform: rotate(145.95deg) translate(130px); }
+.roulette-wheel .number:nth-child(17) { transform: rotate(155.68deg) translate(130px); }
+.roulette-wheel .number:nth-child(18) { transform: rotate(165.41deg) translate(130px); }
+.roulette-wheel .number:nth-child(19) { transform: rotate(175.14deg) translate(130px); }
+.roulette-wheel .number:nth-child(20) { transform: rotate(184.87deg) translate(130px); }
+.roulette-wheel .number:nth-child(21) { transform: rotate(194.6deg) translate(130px); }
+.roulette-wheel .number:nth-child(22) { transform: rotate(204.33deg) translate(130px); }
+.roulette-wheel .number:nth-child(23) { transform: rotate(214.06deg) translate(130px); }
+.roulette-wheel .number:nth-child(24) { transform: rotate(223.79deg) translate(130px); }
+.roulette-wheel .number:nth-child(25) { transform: rotate(233.52deg) translate(130px); }
+.roulette-wheel .number:nth-child(26) { transform: rotate(243.25deg) translate(130px); }
+.roulette-wheel .number:nth-child(27) { transform: rotate(252.98deg) translate(130px); }
+.roulette-wheel .number:nth-child(28) { transform: rotate(262.71deg) translate(130px); }
+.roulette-wheel .number:nth-child(29) { transform: rotate(272.44deg) translate(130px); }
+.roulette-wheel .number:nth-child(30) { transform: rotate(282.17deg) translate(130px); }
+.roulette-wheel .number:nth-child(31) { transform: rotate(291.9deg) translate(130px); }
+.roulette-wheel .number:nth-child(32) { transform: rotate(301.63deg) translate(130px); }
+.roulette-wheel .number:nth-child(33) { transform: rotate(311.36deg) translate(130px); }
+.roulette-wheel .number:nth-child(34) { transform: rotate(321.09deg) translate(130px); }
+.roulette-wheel .number:nth-child(35) { transform: rotate(330.82deg) translate(130px); }
+.roulette-wheel .number:nth-child(36) { transform: rotate(340.55deg) translate(130px); }
+.roulette-wheel .number:nth-child(37) { transform: rotate(350.28deg) translate(130px); }

@@ -15,6 +15,18 @@ document.getElementById('spinButton').addEventListener('click', function() {
     ball.style.top = `${rect.top - wheelRect.top + rect.height / 2}px`;
     ball.style.left = `${rect.left - wheelRect.left + rect.width / 2}px`;
 
+    // Determina il colore, la parità e l'intervallo del numero estratto
+    let color, parity, range;
+    if (selectedNumber == 0) {
+        color = 'verde';
+        parity = 'n/a';
+        range = 'n/a';
+    } else {
+        color = selectedElement.classList.contains('red') ? 'rosso' : 'nero';
+        parity = selectedNumber % 2 === 0 ? 'pari' : 'dispari';
+        range = selectedNumber <= 18 ? 'basso' : 'alto';
+    }
+
     // Mostra il risultato
-    result.textContent = `Numero estratto: ${selectedNumber}`;
+    result.textContent = `Numero estratto: ${selectedNumber} (${color}, ${parity}, ${range})`;
 });

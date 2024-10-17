@@ -2,7 +2,10 @@ document.getElementById('spinButton').addEventListener('click', function() {
     const numbers = document.querySelectorAll('.number');
     const ball = document.getElementById('ball');
     const result = document.getElementById('result');
-
+    
+    // Aggiungi la classe per l'animazione
+    result.classList.add('spinning');
+    
     // Genera un numero casuale tra 0 e 36
     const randomIndex = Math.floor(Math.random() * numbers.length);
     const selectedNumber = numbers[randomIndex].dataset.number;
@@ -27,6 +30,9 @@ document.getElementById('spinButton').addEventListener('click', function() {
         range = selectedNumber <= 18 ? 'basso' : 'alto';
     }
 
-    // Mostra il risultato
-    result.textContent = `Numero estratto: ${selectedNumber} (${color}, ${parity}, ${range})`;
+    // Mostra il risultato dopo l'animazione
+    setTimeout(function() {
+        result.textContent = `Numero estratto: ${selectedNumber} (${color}, ${parity}, ${range})`;
+        result.classList.remove('spinning'); // Rimuovi la classe dopo l'animazione
+    }, 500); // Durata dell'animazione di mezzo secondo
 });

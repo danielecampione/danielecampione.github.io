@@ -34,5 +34,5 @@ document.getElementById('spinButton').addEventListener('click', function() {
     setTimeout(function() {
         result.textContent = `Numero estratto: ${selectedNumber} (${color}, ${parity}, ${range})`;
         result.classList.remove('spinning'); // Rimuovi la classe dopo l'animazione
-    }, 500); // Durata dell'animazione di mezzo secondo
+    }, 1000); // Durata dell'animazione di un secondo
 });

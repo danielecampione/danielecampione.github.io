@@ -96,7 +96,7 @@ button:hover {
 
 .spinning {
     background-color: #16a085;
-    transition: background-color 0.5s; /* Durata dell'animazione */
+    transition: background-color 1s; /* Durata dell'animazione */
 }
 
 /* Posizionamento dei numeri lungo la circonferenza nell'ordine corretto della roulette europea */

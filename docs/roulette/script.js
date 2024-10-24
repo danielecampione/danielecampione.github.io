@@ -3,21 +3,28 @@ document.getElementById('spinButton').addEventListener('click', function() {
     const ball = document.getElementById('ball');
     const result = document.getElementById('result');
     const wheel = document.querySelector('.roulette-wheel');
-    
+    const animationToggle = document.getElementById('animationToggle');
+
+    if (!animationToggle.checked) {
+        // Aggiungi l'animazione alla ruota
+        wheel.classList.add('spinning');
+        // Rimuovi l'animazione dopo 2 secondi
+        setTimeout(function() {
+            wheel.classList.remove('spinning');
+        }, 2000);
+    }
+
     // Genera un numero casuale tra 0 e 36
     const randomIndex = Math.floor(Math.random() * numbers.length);
     const selectedNumber = numbers[randomIndex].dataset.number;
-    
+
     // Posiziona la pallina sul numero estratto
     const selectedElement = numbers[randomIndex];
     const rect = selectedElement.getBoundingClientRect();
-    const wheelRect = wheel.getBoundingClientRect();
+    const wheelRect = document.querySelector('.roulette-wheel').getBoundingClientRect();
     ball.style.top = `${rect.top - wheelRect.top + rect.height / 2}px`;
     ball.style.left = `${rect.left - wheelRect.left + rect.width / 2}px`;
 
-    // Aggiungi la classe per l'animazione della ruota
-    wheel.classList.add('spinning');
-    
     // Determina il colore, la parità e l'intervallo del numero estratto
     let color, parity, range;
     if (selectedNumber == 0) {
@@ -30,13 +37,11 @@ document.getElementById('spinButton').addEventListener('click', function() {
         range = selectedNumber <= 18 ? 'basso' : 'alto';
     }
 
-    // Mostra il risultato dopo l'animazione
+    // Mostra il risultato con l'animazione di sfondo verde
+    result.textContent = `Numero estratto: ${selectedNumber} (${color}, ${parity}, ${range})`;
+    result.classList.add('flash-background'); // Cambia animazione di sfondo
+    // Rimuovi l'animazione di sfondo dopo un secondo
     setTimeout(function() {
-        result.textContent = `Numero estratto: ${selectedNumber} (${color}, ${parity}, ${range})`;
-        result.classList.add('flash-green'); // Aggiungi l'animazione alla label
-        setTimeout(function() {
-            result.classList.remove('flash-green'); // Rimuovi l'animazione dopo 2 secondi
-        }, 2000);
-        wheel.classList.remove('spinning'); // Ferma la ruota
-    }, 2000); // Durata dell'animazione di 2 secondi
+        result.classList.remove('flash-background');
+    }, 1000);
 });

@@ -24,10 +24,6 @@ body {
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
 }
 
-.spinning {
-    animation: spin 2s linear; /* Durata dell'animazione di 2 secondi */
-}
-
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
@@ -120,6 +116,93 @@ button:hover {
 @keyframes flash {
     0%, 100% { background-color: #34495e; } /* Colore di base */
     50% { background-color: #2ecc71; } /* Colore verde */
+}
+
+/* Stili Toggle Switch */
+.toggle-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    color: #ecf0f1;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 34px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 20px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 12px;
+    width: 12px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(14px);
+}
+
+/* Roulette Animation */
+.roulette-wheel.spinning {
+    animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Aggiungi questa animazione di sfondo */
+@keyframes flash-background {
+    0%, 100% { background-color: #34495e; } /* Colore di base */
+    50% { background-color: #2ecc71; } /* Colore verde */
+}
+
+/* Modifica l'animazione di sfondo per la label */
+.flash-background {
+    animation: flash-background 1s; /* Durata dell'animazione */
+}
+
+/* Rimuovi l'animazione di rotazione del testo */
+.spinning {
+    background-color: #16a085;
+    transition: background-color 1s; /* Durata dell'animazione */
 }
 
 /* Posizionamento dei numeri lungo la circonferenza nell'ordine corretto della roulette europea */

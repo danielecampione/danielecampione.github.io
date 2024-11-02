@@ -24,7 +24,7 @@ document.getElementById('spinButton').addEventListener('click', function() {
     const wheel = document.querySelector('.roulette-wheel');
     const animationToggle = document.getElementById('animationToggle');
 
-    if (!animationToggle.checked) {
+    if (animationToggle.checked) {
         // Aggiungi l'animazione alla ruota
         wheel.classList.add('spinning');
         // Rimuovi l'animazione dopo 2 secondi

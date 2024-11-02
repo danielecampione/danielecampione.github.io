@@ -1,3 +1,22 @@
+// Funzione per aggiornare la barra inferiore
+function aggiornaHistoryBar(numero, colore) {
+  const historyBar = document.querySelector('.history-bar');
+  const newItem = document.createElement('div');
+  newItem.classList.add('history-item');
+  newItem.style.backgroundColor = colore;
+  newItem.textContent = numero;
+
+  if (historyBar.firstChild) {
+    historyBar.insertBefore(newItem, historyBar.firstChild);
+  } else {
+    historyBar.appendChild(newItem);
+  }
+
+  if (historyBar.childElementCount > 20) {
+    historyBar.removeChild(historyBar.lastChild);
+  }
+}
+
 document.getElementById('spinButton').addEventListener('click', function() {
     const numbers = document.querySelectorAll('.number');
     const ball = document.getElementById('ball');
@@ -36,6 +55,9 @@ document.getElementById('spinButton').addEventListener('click', function() {
         parity = selectedNumber % 2 === 0 ? 'pari' : 'dispari';
         range = selectedNumber <= 18 ? 'basso' : 'alto';
     }
+
+    const selectedColor = (color === 'verde') ? 'green' : (color === 'rosso') ? 'red' : 'black';
+    aggiornaHistoryBar(selectedNumber, selectedColor);
 
     // Mostra il risultato con l'animazione di sfondo verde
     result.textContent = `Numero estratto: ${selectedNumber} (${color}, ${parity}, ${range})`;

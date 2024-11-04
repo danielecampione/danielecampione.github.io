@@ -3,8 +3,9 @@ function aggiornaHistoryBar(numero, colore) {
   const historyBar = document.querySelector('.history-bar');
   const newItem = document.createElement('div');
   newItem.classList.add('history-item');
-  newItem.style.backgroundColor = colore;
+  newItem.classList.add(colore);
   newItem.textContent = numero;
+  const animationToggle = document.getElementById('animationToggle');
 
   if (historyBar.firstChild) {
     historyBar.insertBefore(newItem, historyBar.firstChild);
@@ -12,8 +13,19 @@ function aggiornaHistoryBar(numero, colore) {
     historyBar.appendChild(newItem);
   }
 
+  // Rimuovi l'ultimo elemento se ce ne sono più di 20, senza animazione
   if (historyBar.childElementCount > 20) {
-    historyBar.removeChild(historyBar.lastChild);
+    const lastItem = historyBar.lastChild;
+    historyBar.removeChild(lastItem);
+  }
+
+  if (animationToggle.checked) {
+    // Forza il layout per garantire che l'animazione di comparsa sia applicata
+    newItem.offsetHeight;
+    newItem.style.opacity = 1;
+    newItem.classList.add('show');
+  } else {
+    newItem.classList.add('no-animation');
   }
 }
 
@@ -59,11 +71,15 @@ document.getElementById('spinButton').addEventListener('click', function() {
     const selectedColor = (color === 'verde') ? 'green' : (color === 'rosso') ? 'red' : 'black';
     aggiornaHistoryBar(selectedNumber, selectedColor);
 
-    // Mostra il risultato con l'animazione di sfondo verde
+    // Mostra il risultato
     result.textContent = `Numero estratto: ${selectedNumber} (${color}, ${parity}, ${range})`;
-    result.classList.add('flash-background'); // Cambia animazione di sfondo
-    // Rimuovi l'animazione di sfondo dopo un secondo
-    setTimeout(function() {
-        result.classList.remove('flash-background');
-    }, 1000);
+
+    if (animationToggle.checked) {
+        // Aggiungi l'animazione di sfondo verde
+        result.classList.add('flash-background');
+        // Rimuovi l'animazione di sfondo dopo un secondo
+        setTimeout(function() {
+            result.classList.remove('flash-background');
+        }, 1000);
+    }
 });

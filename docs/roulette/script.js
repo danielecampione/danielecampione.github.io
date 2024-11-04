@@ -56,6 +56,12 @@ document.getElementById('spinButton').addEventListener('click', function() {
     ball.style.top = `${rect.top - wheelRect.top + rect.height / 2}px`;
     ball.style.left = `${rect.left - wheelRect.left + rect.width / 2}px`;
 
+    // Rimuovi eventuali effetti "glow" precedenti
+    numbers.forEach(number => number.classList.remove('glow'));
+
+    // Aggiungi l'effetto "glow" al numero estratto
+    selectedElement.classList.add('glow');
+
     // Determina il colore, la parità e l'intervallo del numero estratto
     let color, parity, range;
     if (selectedNumber == 0) {

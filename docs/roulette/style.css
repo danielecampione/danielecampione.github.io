@@ -262,6 +262,11 @@ input:checked + .slider:before {
   color: #ecf0f1; /* Colore del testo */
 }
 
+.number.glow {
+  box-shadow: 0 0 20px rgba(255, 255, 0, 1);
+  color: #fff;
+}
+
 /* Posizionamento dei numeri lungo la circonferenza nell'ordine corretto della roulette europea */
 .roulette-wheel .number:nth-child(1) { transform: rotate(0deg) translate(130px); }
 .roulette-wheel .number:nth-child(2) { transform: rotate(9.73deg) translate(130px); }

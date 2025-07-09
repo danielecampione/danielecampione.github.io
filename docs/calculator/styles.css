@@ -94,7 +94,7 @@ body.light-theme .tab-link.active {
 
 .calculator-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 10px;
 }
 
@@ -118,6 +118,7 @@ body.light-theme .display {
     color: #fff;
     font-size: 2.5em;
     text-align: right;
+    outline: none;
 }
 
 body.light-theme #display {
@@ -133,6 +134,7 @@ body.light-theme #display {
     background: #555;
     color: #fff;
     transition: background 0.2s, box-shadow 0.2s;
+    font-family: 'Orbitron', sans-serif;
 }
 
 body.light-theme .btn {
@@ -151,7 +153,7 @@ body.light-theme .btn:active {
 
 .btn.function { background: #444; }
 .btn.operator { background: #666; }
-.btn.equals { background: #00aaff; grid-column: span 2; }
+.btn.equals { background: #00aaff; }
 
 body.light-theme .btn.function { background: #c0c0c0; }
 body.light-theme .btn.operator { background: #b0b0b0; }
@@ -180,10 +182,34 @@ body.light-theme .history-panel {
     padding: 10px;
     border-bottom: 1px solid #444;
     cursor: pointer;
+    transition: background 0.2s;
+}
+
+#history-list li:hover {
+    background: #444;
 }
 
 body.light-theme #history-list li {
     border-bottom-color: #ccc;
+}
+
+body.light-theme #history-list li:hover {
+    background: #ccc;
+}
+
+#clear-history {
+    background: #666;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+body.light-theme #clear-history {
+    background: #999;
 }
 
 /* Function Plotter */
@@ -201,12 +227,28 @@ body.light-theme #history-list li {
     border: 1px solid #555;
     background: #222;
     color: #fff;
+    font-family: 'Orbitron', sans-serif;
+    outline: none;
 }
 
 body.light-theme #function-input {
     background: #fff;
     color: #333;
     border-color: #ccc;
+}
+
+#plot-button {
+    background: #00aaff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+}
+
+body.light-theme #plot-button {
+    background: #007acc;
 }
 
 #plot-canvas {
@@ -235,6 +277,8 @@ body.light-theme #function-input {
     background: #222;
     color: #fff;
     font-size: 1em;
+    font-family: 'Orbitron', sans-serif;
+    outline: none;
 }
 
 body.light-theme .converter-controls select,
@@ -243,8 +287,6 @@ body.light-theme .converter-controls input {
     color: #333;
     border-color: #ccc;
 }
-
-
 
 /* Theme Switcher */
 #theme-switcher {
@@ -255,4 +297,24 @@ body.light-theme .converter-controls input {
     background: none;
     border: none;
     cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #calculator {
+        grid-template-columns: 1fr;
+    }
+    
+    .calculator-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .btn {
+        padding: 15px;
+        font-size: 1em;
+    }
+    
+    #display {
+        font-size: 2em;
+    }
 }

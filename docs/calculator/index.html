@@ -11,10 +11,9 @@
 <body>
     <div class="suite-container">
         <div class="tabs">
-            <button class="tab-link" data-tab="calculator">Calculator</button>
+            <button class="tab-link active" data-tab="calculator">Calculator</button>
             <button class="tab-link" data-tab="plotter">Function Plotter</button>
             <button class="tab-link" data-tab="converter">Unit Converter</button>
-
         </div>
 
         <div id="calculator" class="tab-content active">
@@ -22,48 +21,64 @@
                 <div class="display">
                     <input type="text" id="display" disabled>
                 </div>
+                
+                <!-- Row 1 -->
                 <button class="btn function" data-function="2nd">2nd</button>
                 <button class="btn function" data-value="π">π</button>
                 <button class="btn function" data-value="e">e</button>
                 <button class="btn function" data-function="clear">C</button>
-                <button class="btn function" data-function="delete">DEL</button>
+                <button class="btn function" data-function="delete">⌫</button>
 
+                <!-- Row 2 -->
                 <button class="btn function" data-main="x2" data-second="x3" data-function="x2" data-main-label="x²" data-second-label="x³">x²</button>
-                <button class="btn function" data-main="1/x" data-second="y-sqrt" data-function="1/x" data-main-label="¹/x" data-second-label="ʸ√x">¹/x</button>
-                <button class="btn function" data-value="(">(</button>
-                <button class="btn function" data-value=")">)</button>
+                <button class="btn function" data-main="1/x" data-second="y-sqrt" data-function="1/x" data-main-label="1/x" data-second-label="ʸ√x">1/x</button>
+                <button class="btn function" data-function="abs">|x|</button>
+                <button class="btn function" data-value="Math.sqrt(">√</button>
                 <button class="btn function" data-value="**">^</button>
 
+                <!-- Row 3 -->
                 <button class="btn function" data-main="log" data-second="ln" data-function="log" data-main-label="log" data-second-label="ln">log</button>
-                <button class="btn function" data-value="Math.sin(">sin</button>
-                <button class="btn function" data-value="Math.cos(">cos</button>
-                <button class="btn function" data-value="Math.tan(">tan</button>
+                <button class="btn function" data-main="sin" data-second="asin" data-function="sin" data-main-label="sin" data-second-label="asin">sin</button>
+                <button class="btn function" data-main="cos" data-second="acos" data-function="cos" data-main-label="cos" data-second-label="acos">cos</button>
+                <button class="btn function" data-main="tan" data-second="atan" data-function="tan" data-main-label="tan" data-second-label="atan">tan</button>
                 <button class="btn function" data-function="fact">n!</button>
 
+                <!-- Row 4 -->
+                <button class="btn function" data-value="(">(</button>
+                <button class="btn function" data-value=")">)</button>
+                <button class="btn function" data-function="mc">MC</button>
+                <button class="btn function" data-function="mr">MR</button>
+                <button class="btn operator" data-value="/">÷</button>
+
+                <!-- Row 5 - Numeric keypad layout -->
                 <button class="btn number" data-value="7">7</button>
                 <button class="btn number" data-value="8">8</button>
                 <button class="btn number" data-value="9">9</button>
-                <button class="btn operator" data-value="/">÷</button>
-                <button class="btn function" data-function="mc">MC</button>
+                <button class="btn function" data-function="m+">M+</button>
+                <button class="btn operator" data-value="*">×</button>
 
+                <!-- Row 6 -->
                 <button class="btn number" data-value="4">4</button>
                 <button class="btn number" data-value="5">5</button>
                 <button class="btn number" data-value="6">6</button>
-                <button class="btn operator" data-value="*">×</button>
-                <button class="btn function" data-function="mr">MR</button>
+                <button class="btn function" data-function="m-">M-</button>
+                <button class="btn operator" data-value="-">−</button>
 
+                <!-- Row 7 -->
                 <button class="btn number" data-value="1">1</button>
                 <button class="btn number" data-value="2">2</button>
                 <button class="btn number" data-value="3">3</button>
-                <button class="btn operator" data-value="-">−</button>
-                <button class="btn function" data-function="m+">M+</button>
+                <button class="btn function" data-function="ms">MS</button>
+                <button class="btn operator" data-value="+">+</button>
 
+                <!-- Row 8 -->
+                <button class="btn function" data-value="+/-">±</button>
                 <button class="btn number" data-value="0">0</button>
                 <button class="btn number" data-value=".">.</button>
-                <button class="btn operator" data-value="+">+</button>
+                <button class="btn function" data-function="percent">%</button>
                 <button class="btn equals" data-function="calculate">=</button>
-                <button class="btn function" data-function="m-">M-</button>
             </div>
+            
             <div class="history-panel">
                 <h3>History</h3>
                 <ul id="history-list"></ul>
@@ -75,7 +90,7 @@
             <h3>Function Plotter</h3>
             <div class="plotter-controls">
                 <label for="function-input">f(x) =</label>
-                <input type="text" id="function-input" placeholder="e.g., Math.sin(x)">
+                <input type="text" id="function-input" placeholder="e.g., Math.sin(x) or x*x">
                 <button id="plot-button">Plot</button>
             </div>
             <canvas id="plot-canvas"></canvas>
@@ -84,9 +99,14 @@
         <div id="converter" class="tab-content">
             <h3>Unit Converter</h3>
             <div class="converter-controls">
-                <select id="category-select"></select>
+                <select id="category-select">
+                    <option value="length">Length</option>
+                    <option value="mass">Mass</option>
+                    <option value="temperature">Temperature</option>
+                    <option value="speed">Speed</option>
+                </select>
                 <div class="converter-io">
-                    <input type="number" id="unit-input">
+                    <input type="number" id="unit-input" placeholder="Enter value">
                     <select id="from-unit-select"></select>
                     <span>=</span>
                     <input type="text" id="unit-output" disabled>
@@ -94,9 +114,10 @@
                 </div>
             </div>
         </div>
-
     </div>
+    
     <button id="theme-switcher">🌓</button>
+
     <script src="script.js"></script>
 </body>
 </html>

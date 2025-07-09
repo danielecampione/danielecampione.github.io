@@ -1,39 +1,102 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calcolatrice Scientifica</title>
+    <title>Advanced Calculator Suite</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div class="calculator">
-        <div class="display">
-            <input type="text" id="result" disabled>
+    <div class="suite-container">
+        <div class="tabs">
+            <button class="tab-link" data-tab="calculator">Calculator</button>
+            <button class="tab-link" data-tab="plotter">Function Plotter</button>
+            <button class="tab-link" data-tab="converter">Unit Converter</button>
+
         </div>
-        <div class="buttons">
-            <button class="btn function" onclick="clearDisplay()">C</button>
-            <button class="btn function" onclick="deleteLast()">DEL</button>
-            <button class="btn operator" onclick="appendToDisplay('(')">(</button>
-            <button class="btn operator" onclick="appendToDisplay(')')">)</button>
-            <button class="btn operator" onclick="appendToDisplay('/')">/</button>
-            <button class="btn number" onclick="appendToDisplay('7')">7</button>
-            <button class="btn number" onclick="appendToDisplay('8')">8</button>
-            <button class="btn number" onclick="appendToDisplay('9')">9</button>
-            <button class="btn operator" onclick="appendToDisplay('*')">*</button>
-            <button class="btn number" onclick="appendToDisplay('4')">4</button>
-            <button class="btn number" onclick="appendToDisplay('5')">5</button>
-            <button class="btn number" onclick="appendToDisplay('6')">6</button>
-            <button class="btn operator" onclick="appendToDisplay('-')">-</button>
-            <button class="btn number" onclick="appendToDisplay('1')">1</button>
-            <button class="btn number" onclick="appendToDisplay('2')">2</button>
-            <button class="btn number" onclick="appendToDisplay('3')">3</button>
-            <button class="btn operator" onclick="appendToDisplay('+')">+</button>
-            <button class="btn number" onclick="appendToDisplay('0')">0</button>
-            <button class="btn number" onclick="appendToDisplay('.')">.</button>
-            <button class="btn equals" onclick="calculateResult()">=</button>
+
+        <div id="calculator" class="tab-content active">
+            <div class="calculator-grid">
+                <div class="display">
+                    <input type="text" id="display" disabled>
+                </div>
+                <button class="btn function" data-function="2nd">2nd</button>
+                <button class="btn function" data-value="π">π</button>
+                <button class="btn function" data-value="e">e</button>
+                <button class="btn function" data-function="clear">C</button>
+                <button class="btn function" data-function="delete">DEL</button>
+
+                <button class="btn function" data-main="x2" data-second="x3" data-function="x2" data-main-label="x²" data-second-label="x³">x²</button>
+                <button class="btn function" data-main="1/x" data-second="y-sqrt" data-function="1/x" data-main-label="¹/x" data-second-label="ʸ√x">¹/x</button>
+                <button class="btn function" data-value="(">(</button>
+                <button class="btn function" data-value=")">)</button>
+                <button class="btn function" data-value="**">^</button>
+
+                <button class="btn function" data-main="log" data-second="ln" data-function="log" data-main-label="log" data-second-label="ln">log</button>
+                <button class="btn function" data-value="Math.sin(">sin</button>
+                <button class="btn function" data-value="Math.cos(">cos</button>
+                <button class="btn function" data-value="Math.tan(">tan</button>
+                <button class="btn function" data-function="fact">n!</button>
+
+                <button class="btn number" data-value="7">7</button>
+                <button class="btn number" data-value="8">8</button>
+                <button class="btn number" data-value="9">9</button>
+                <button class="btn operator" data-value="/">÷</button>
+                <button class="btn function" data-function="mc">MC</button>
+
+                <button class="btn number" data-value="4">4</button>
+                <button class="btn number" data-value="5">5</button>
+                <button class="btn number" data-value="6">6</button>
+                <button class="btn operator" data-value="*">×</button>
+                <button class="btn function" data-function="mr">MR</button>
+
+                <button class="btn number" data-value="1">1</button>
+                <button class="btn number" data-value="2">2</button>
+                <button class="btn number" data-value="3">3</button>
+                <button class="btn operator" data-value="-">−</button>
+                <button class="btn function" data-function="m+">M+</button>
+
+                <button class="btn number" data-value="0">0</button>
+                <button class="btn number" data-value=".">.</button>
+                <button class="btn operator" data-value="+">+</button>
+                <button class="btn equals" data-function="calculate">=</button>
+                <button class="btn function" data-function="m-">M-</button>
+            </div>
+            <div class="history-panel">
+                <h3>History</h3>
+                <ul id="history-list"></ul>
+                <button id="clear-history">Clear History</button>
+            </div>
         </div>
+
+        <div id="plotter" class="tab-content">
+            <h3>Function Plotter</h3>
+            <div class="plotter-controls">
+                <label for="function-input">f(x) =</label>
+                <input type="text" id="function-input" placeholder="e.g., Math.sin(x)">
+                <button id="plot-button">Plot</button>
+            </div>
+            <canvas id="plot-canvas"></canvas>
+        </div>
+
+        <div id="converter" class="tab-content">
+            <h3>Unit Converter</h3>
+            <div class="converter-controls">
+                <select id="category-select"></select>
+                <div class="converter-io">
+                    <input type="number" id="unit-input">
+                    <select id="from-unit-select"></select>
+                    <span>=</span>
+                    <input type="text" id="unit-output" disabled>
+                    <select id="to-unit-select"></select>
+                </div>
+            </div>
+        </div>
+
     </div>
+    <button id="theme-switcher">🌓</button>
     <script src="script.js"></script>
 </body>
 </html>

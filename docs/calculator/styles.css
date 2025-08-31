@@ -301,20 +301,43 @@ body.light-theme .converter-controls input {
 
 /* Responsive */
 @media (max-width: 768px) {
+    .suite-container {
+        width: 98%;
+        padding: 10px;
+    }
+    
     #calculator {
         grid-template-columns: 1fr;
+        gap: 15px;
     }
     
     .calculator-grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(5, 1fr);
+        gap: 8px;
     }
     
     .btn {
-        padding: 15px;
-        font-size: 1em;
+        padding: 12px 8px;
+        font-size: 0.9em;
+        min-height: 50px;
     }
     
     #display {
-        font-size: 2em;
+        font-size: 1.8em;
+        padding: 15px;
+    }
+    
+    .display {
+        padding: 15px;
+        margin-bottom: 8px;
+    }
+    
+    .history-panel {
+        padding: 15px;
+    }
+    
+    .history-panel h3 {
+        margin-top: 0;
+        font-size: 1.1em;
     }
 }

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rubik's Cube</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container"></div>
+    <div class="info">
+        <h1>Rubik's Cube</h1>
+        <p>Use mouse to rotate</p>
+    </div>
+    <div class="controls">
+        <div class="face-group">
+            <button onclick="rotateTopCounter()">Top Left</button>
+            <button onclick="rotateTop()">Top Right</button>
+        </div>
+        <div class="face-group">
+            <button onclick="rotateMiddleHorizontalCounter()">Middle H. Left</button>
+            <button onclick="rotateMiddleHorizontal()">Middle H. Right</button>
+        </div>
+        <div class="face-group">
+            <button onclick="rotateBottomCounter()">Bottom Left</button>
+            <button onclick="rotateBottom()">Bottom Right</button>
+        </div>
+        <div class="face-group">
+            <button onclick="rotateLeftCounter()">Left Up</button>
+            <button onclick="rotateLeft()">Left Down</button>
+        </div>
+        <div class="face-group">
+            <button onclick="rotateMiddleVerticalCounter()">Middle V. Up</button>
+            <button onclick="rotateMiddleVertical()">Middle V. Down</button>
+        </div>
+        <div class="face-group">
+            <button onclick="rotateRightCounter()">Right Up</button>
+            <button onclick="rotateRight()">Right Down</button>
+        </div>
+        <div class="face-group">
+            <button onclick="scrambleCube()">Scramble</button>
+            <button onclick="resetCube()">Reset</button>
+        </div>
+    </div>
+
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>-->
+    <!--or-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.js"></script>-->
+    <script src="./three.js"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>-->
+    <script src="./OrbitControls.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

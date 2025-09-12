@@ -1,6 +1,6 @@
 # Daniele Campione's projects written in HTML5, CSS3 and JavaScript
 
-danielecampione's projects written in HTML5, CSS3 and JavaScript:
+Daniele Campione's projects written in HTML5, CSS3 and JavaScript:
 * A Web browser-based virtual Rubik's Cube built with Three.js, enabling users to practice and solve the puzzle in an interactive 3D environment.
 Features include realistic cube geometry and smooth layer rotations for an immersive learning and training experience.
 ([threejs_rubik_s_cube](https://danielecampione.github.io/docs/threejs_rubik_s_cube/index.html))
